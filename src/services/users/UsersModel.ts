@@ -1,5 +1,5 @@
-import { DataTypes, Model } from "sequelize";
-import { db } from "../db";
+import { DataTypes } from 'sequelize';
+import { db } from '../../db';
 
 const User = db.define('User', {
   id: {
@@ -19,10 +19,12 @@ const User = db.define('User', {
   name: {
     type: DataTypes.STRING,
     allowNull: true
-  }, 
+  },
 }, {
   tableName: 'auth',
   timestamps: false
 });
+
+User.sync({ alter: true });
 
 export default User;

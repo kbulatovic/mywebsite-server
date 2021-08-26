@@ -1,0 +1,17 @@
+{
+    "root": true,
+    "parser": "@typescript-eslint/parser",
+    "plugins": [
+        "@typescript-eslint"    
+    ],
+    "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended"
+    ],
+    "rules": {
+        "quotes": ["warn", "single"],
+        "eol-last": ["warn", "always"],
+        "indent": ["warn", 2],
+        "semi": ["warn", "always"]
+    }
+}

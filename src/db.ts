@@ -1,4 +1,5 @@
-import { Sequelize } from "sequelize";
+import chalk from 'chalk';
+import { Sequelize } from 'sequelize';
 
 export const db = new Sequelize(
   process.env.DB_NAME,
@@ -15,7 +16,7 @@ export const db = new Sequelize(
 export default async function dbConnect(): Promise<void> {
   try {
     await db.authenticate();
-    console.log('Connection has been established successfully.');
+    console.log(chalk.greenBright('Connection has been established successfully.'));
   } catch (error) {
     console.error('Unable to connect to the database:', error);
   }
