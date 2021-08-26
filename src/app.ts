@@ -1,12 +1,17 @@
-import connect from './db';
+import dbConnect from './db';
 import Koa from 'koa';
+import bodyParser from 'koa-bodyparser';
+import json from 'koa-json';
+
+// Get controller routes
+import usersRouter from './controllers/usersController';
 
 const app = new Koa();
 
-connect();
+app.use(bodyParser());
+app.use(json());
 
-app.use(async ctx => {
-  ctx.body = 'Hello world'
-})
+dbConnect();
+usersRouter(app);
 
 app.listen(3000);

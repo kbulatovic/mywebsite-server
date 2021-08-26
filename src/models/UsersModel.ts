@@ -1,9 +1,7 @@
 import { DataTypes, Model } from "sequelize";
 import { db } from "../db";
 
-class Users extends Model {}
-
-Users.init({
+const User = db.define('User', {
   id: {
     type: DataTypes.NUMBER,
     primaryKey: true,
@@ -23,9 +21,8 @@ Users.init({
     allowNull: true
   }, 
 }, {
-  sequelize: db,
-  freezeTableName: true,
-  modelName: 'Users'
+  tableName: 'auth',
+  timestamps: false
 });
 
-Users.sync({ alter: true });
+export default User;

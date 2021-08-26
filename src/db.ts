@@ -12,7 +12,7 @@ export const db = new Sequelize(
 /**
  * Connect to db
  */
-export default async function connect(): Promise<void> {
+export default async function dbConnect(): Promise<void> {
   try {
     await db.authenticate();
     console.log('Connection has been established successfully.');
