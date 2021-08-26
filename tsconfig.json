@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "diagnostics": false,
+    "allowJs": true,
+    "baseUrl": "src",
+    "allowSyntheticDefaultImports": true,
+    "module": "CommonJS",
+    "moduleResolution": "node",
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "isolatedModules": true,
+    "esModuleInterop": true
+  }
+}
