@@ -1,16 +1,32 @@
 import execa from 'execa';
-import { command, parse } from 'yargs';
+import yargs, { parse, help } from 'yargs';
 import { config } from 'dotenv';
 
-config({ path: '.env' });
+config({ path: '.env.dev' });
 
-command({
-  command: 'dev',
-  describe: 'Run local dev server in Koa, starts the db',
-  handler: () => {
-    execa('pkill', ['-f', 'node']);
-    execa('nodemon').stdout.pipe(process.stdout);
-  }
-});
+yargs
+  .command({
+    command: 'dev',
+    describe: 'Run local dev server in Koa, starts the db',
+    handler: () => {
+      try {
+        execa('pkill', ['-f', 'node']);
+        const nodemon = execa('nodemon');
+      
+        nodemon?.stdout?.pipe(process.stdout);
+        nodemon?.stderr?.pipe(process.stderr);
+      } catch (error) {
+        throw error;
+      }
+    }
+  })
+  .command({
+    command: 'knex',
+    describe: 'Knex migration tool',
+    handler: () => {
+      execa('./node_modules/knex/bin/cli.js');
+    }
+  });
 
+help();
 parse();

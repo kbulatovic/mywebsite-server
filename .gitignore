@@ -1,3 +1,5 @@
 /node_modules
+/certificates
 yarn-error.log
-.env
+.env.dev
+

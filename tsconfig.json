@@ -4,11 +4,21 @@
     "allowJs": true,
     "baseUrl": "src",
     "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "noEmitOnError": true,
     "module": "CommonJS",
     "moduleResolution": "node",
     "declaration": true,
     "emitDeclarationOnly": true,
     "isolatedModules": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "paths": {
+      "config/*": ["config/*"],
+      "config": ["config/"],
+      "utils/*": ["utils/*"],
+      "utils": ["utils/"],
+      "models/*": ["models/*"],
+      "models": ["models/"]
+    }
   }
 }
